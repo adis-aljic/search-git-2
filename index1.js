@@ -129,10 +129,8 @@ const all_results = (username, counter) => {
         <tr> 
 
             <td> 
-                            <div class="col s8 l6"
                             <img id="avatar_all" class="responsive-img materialboxed center" src="${obj.avatar}">
-                            </div>
-            </td>
+                            </td>
             <td>
 
             ${obj.username} 
