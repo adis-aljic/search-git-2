@@ -1,0 +1,204 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="index1.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <title>Search GitHub</title>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="navbar-fixed">
+            <nav class="nav-wrapper indigo">
+                <div class="container">
+                    <ul >
+                        <li>
+                            <a  id="cover"  class=" btn-floating btn-big black darken-4">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <a class="s12 brand-logo clicker"  onclick="window.location.reload()">Search Github
+
+                    </a>
+
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container section">
+        <div class="row">
+
+            <div class="col s6 offset-s3 transparent">
+                <div class="input-field ">
+                    <i class="material-icons prefix">search</i>
+                   
+                    <input type="text" id="search_username">
+
+                </div>
+                <div class="input-field  center">
+                    <p>
+                        <label>
+                            <input type="radio" name="find_user" id="one_user" value="one" checked>
+                            <span>Find by username</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="find_user" id="all" value="all">
+                            <span>Find user</span>
+                        </label>
+                    </p>
+                </div>
+                <div class="input-field center">
+                    <button class="btn" id="search_username_btn">Submit</button>
+
+                </div>
+
+            </div>
+
+    </section>
+
+    <section class="container section hidden" id="one_repos">
+        <div class="row">
+            <div class="col s12 l8 offset-l2">
+                <ul class="tabs">
+                    <li class="tab col s6">
+                        <a href="#profile" class="active z-depth-1 black-text text-darken-4">Profile</a>
+                    </li>
+                    <li class="tab col s6">
+                        <a href="#reposotories" class="z-depth-1 black-text text-darken-4">Reposotories</a>
+                    </li>
+                </ul>
+                <div class="col s12" id="results_username ">
+                   
+                    <p id="profile"  class="col s12 ">
+                        <table id="info_media" class="resposive-table centered highlight">
+                        <div class="col s3 offset-s2">
+
+                            <img id="avatar" class="responsive-img materialboxed center">
+                        </div>
+                        <thead>
+                            <tr>
+
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Username
+                                </th>
+                                <th>
+                                    Followers
+                                </th>
+                                <th>
+                                    Following
+                                </th>
+                                <th>
+                                    Number of Reposotories
+                                </th>
+                                <th>
+                                    Link
+                                </th>
+                            </tr>
+                        </thead>
+                        <div class="col s12">
+
+                            <tbody id="table_body">
+                                
+                                
+                            </tbody>
+                        </div>
+
+
+                    </table>
+
+                    </p>
+                </div>
+                <div class="col s12">
+                   
+                    <p class=" col s12" id="reposotories">
+                    <table class="resposive-table  highlight">
+                        <thead>
+                            <tr>
+
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Link
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="repo_body_table">
+
+                        </tbody>
+                    </table>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <section class="section container hidden" id="all_repos">
+        <div class="row">
+
+            <div class="all_res col s12 " id="all_results">
+
+                <h1>Results:</h1>
+                <table class="resposive-table centered  highlight">
+                    <tr>
+
+                        <th>
+                            Picture
+                        </th>
+                        <th>
+                            Username
+                        </th>
+                        <th>
+                            Link
+                        </th>
+                    </tr>
+                        <tbody id="all_repo">
+                        </tbody>
+                </table>
+                <div class="prev_next">
+                    <div>
+                        <button id="prev">
+                            << </button>
+                                <button id="next"> >> </button>
+                    </div>
+                    <p id="pages"></p>
+                </div>
+            </div>
+    </section>
+    <script src="index1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('.tabs').tabs();
+            $('.materialboxed').materialbox();
+
+
+        });
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+</body>
+
+</html>

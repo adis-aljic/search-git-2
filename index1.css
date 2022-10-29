@@ -1,0 +1,46 @@
+.row>div {
+    padding: 10px;
+    background: #ddd;
+    border: 1px solid #fff;
+}
+
+.row {
+    margin: 40px auto;
+}
+.clicker{
+    cursor: pointer;
+}
+body {
+    background: linear-gradient(34deg, rgba(200, 228, 255, 1) 4%, rgba(126, 135, 245, 1) 35%, rgba(49, 102, 241, 1) 60%, rgba(18, 58, 161, 1) 91%);
+
+}
+th, td{
+    text-align: center;
+}
+
+.input-field>label {
+    color: rgb(32, 28, 28);
+
+}
+h1 ,h2{
+    text-align: center;
+}
+.input-field {
+    color: #000;
+}
+.hidden{
+    display: none;
+}
+[type="radio"]:not(:checked)+span:before,
+[type="radio"]:not(:checked)+span:after {
+    border: 1px solid rgb(192, 193, 241);
+}
+
+[type="radio"]:checked+span:after,
+[type="radio"].with-gap:checked+span:after {
+    background-color: rgb(46, 46, 182);
+}
+
+label{
+    color: black;
+}
