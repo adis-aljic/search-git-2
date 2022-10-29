@@ -128,8 +128,8 @@ const all_results = (username, counter) => {
                 document.getElementById("all_repo").innerHTML += `
         <tr> 
 
-            <td> 
-                            <img id="avatar_all" class="responsive-img materialboxed center" src="${obj.avatar}">
+            <td class="responsive-img materialboxed "> 
+                            <img class="responsive-img materialboxed " id="avatar_all"  src="${obj.avatar}">
                             </td>
             <td>
 
