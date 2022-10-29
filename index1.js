@@ -69,12 +69,12 @@ const fetching = (username) => {
             document.getElementById("avatar").setAttribute("src", `${obj.avatar}`)
             document.getElementById("table_body").innerHTML = `
             <tr>
-            <td> ${obj.name} </td>
-            <td>${obj.username} </td>
-            <td> ${obj.followers} </td>
-            <td> ${obj.following} </td>
-            <td>${obj.nbr_repo} </td>
-            <td ><a href="${obj.link}" target="_blank" >${obj.link} </a> </td>
+            <td class="td1"> ${obj.name} </td>
+            <td class="td1">${obj.username} </td>
+            <td class="td1"> ${obj.followers} </td>
+            <td class="td1"> ${obj.following} </td>
+            <td class="td1">${obj.nbr_repo} </td>
+            <td class="td1"><a href="${obj.link}" target="_blank"  style="color:blue;"> <b><i>Link</i></b> </a> </td>
             </tr>
             `
 
@@ -98,7 +98,7 @@ const fetching = (username) => {
             <tr>
             <td> ${obj.name} </td>
             
-            <td ><a href="${obj.link}" target="_blank" >${obj.link} </a> </td>
+            <td ><a href="${obj.link}" target="_blank" style="color:blue;" ><b><i>Link</i></b> </a> </td>
             </tr>
             `
             }
@@ -128,10 +128,9 @@ const all_results = (username, counter) => {
                 document.getElementById("all_repo").innerHTML += `
         <tr> 
 
+    
             <td > 
-            <div class="col s8 l6>
                             <img class="responsive-img materialboxed " id="avatar_all"  src="${obj.avatar}">
-                         </div>
                             </td>
 
             <td>
@@ -140,11 +139,13 @@ const all_results = (username, counter) => {
             </td>
             
             <td>
-            
-            <a href="${obj.link}" target="_blank" >${obj.link} </a> 
+
+            <a href="${obj.link}" target="_blank" style="color:white; text-decoration:underline;" ><i>Link</i> </a> 
+</div>
             </td>
             
             </tr>
+            </div>
             `
             })
 

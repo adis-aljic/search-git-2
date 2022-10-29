@@ -20,14 +20,14 @@
         <div class="navbar-fixed">
             <nav class="nav-wrapper indigo">
                 <div class="container">
-                    <ul >
+                    <ul>
                         <li>
-                            <a  id="cover"  class=" btn-floating btn-big black darken-4">
+                            <a id="cover" class=" btn-floating btn-big black darken-4">
                                 <i class="fab fa-github"></i>
                             </a>
                         </li>
                     </ul>
-                    <a class="s12 brand-logo clicker"  onclick="window.location.reload()">Search Github
+                    <a class="s12 brand-logo clicker" onclick="window.location.reload()">Search Github
 
                     </a>
 
@@ -36,13 +36,13 @@
         </div>
     </header>
 
-    <section class="container section">
+    <section class="container s12 section">
         <div class="row">
 
-            <div class="col s6 offset-s3 transparent">
+            <div class="col s10 l4 offset-l4 offset-s1 transparent">
                 <div class="input-field ">
                     <i class="material-icons prefix">search</i>
-                   
+
                     <input type="text" id="search_username">
 
                 </div>
@@ -79,41 +79,41 @@
                     </li>
                 </ul>
                 <div class="col s12" id="results_username ">
-                   
-                    <p id="profile"  class="col s12 ">
-                        <table id="info_media" class="resposive-table centered highlight">
-                        <div class="col s3 offset-s2">
+
+                    <p id="profile" class="col s6 l12">
+                    <table id="info_media" class="resposive-table left highlight table1">
+                        <div class="col s12 l6">
 
                             <img id="avatar" class="responsive-img materialboxed center">
                         </div>
                         <thead>
                             <tr>
 
-                                <th>
+                                <th class="th1">
                                     Name
                                 </th>
-                                <th>
+                                <th class="th1">
                                     Username
                                 </th>
-                                <th>
+                                <th class="th1">
                                     Followers
                                 </th>
-                                <th>
+                                <th class="th1">
                                     Following
                                 </th>
-                                <th>
-                                    Number of Reposotories
+                                <th class="th1">
+                                Number of Reposotories
                                 </th>
-                                <th>
+                                <th class="th1">
                                     Link
                                 </th>
                             </tr>
                         </thead>
-                        <div class="col s12">
+                        <div class="col s10 offset-s1">
 
                             <tbody id="table_body">
-                                
-                                
+
+
                             </tbody>
                         </div>
 
@@ -123,9 +123,9 @@
                     </p>
                 </div>
                 <div class="col s12">
-                   
-                    <p class=" col s12" id="reposotories">
-                    <table class="resposive-table  highlight">
+
+                    <p class=" col s8 " id="reposotories">
+                    <table class="resposive-table  highlight table_repo_person">
                         <thead>
                             <tr>
 
@@ -139,7 +139,7 @@
                         </thead>
                         <tbody id="repo_body_table">
 
-                        </tbody>
+                        </tbody>    
                     </table>
                     </p>
                 </div>
@@ -155,12 +155,12 @@
 
 
     <section class="section container hidden" id="all_repos">
-        <div class="row">
-
-            <div class="all_res col s12 " id="all_results">
+        <table class="resposive-table centered  highlight">
+            <div class="row">
 
                 <h1>Results:</h1>
-                <table class="resposive-table centered  highlight">
+                <div class="all_res col s12 " id="all_results">
+
                     <tr>
 
                         <th>
@@ -173,18 +173,19 @@
                             Link
                         </th>
                     </tr>
-                        <tbody id="all_repo">
-                        </tbody>
-                </table>
-                <div class="prev_next">
-                    <div>
-                        <button id="prev">
-                            << </button>
-                                <button id="next"> >> </button>
-                    </div>
-                    <p id="pages"></p>
+                    <tbody id="all_repo">
+                    </tbody>
                 </div>
             </div>
+        </table>
+        <div class="prev_next">
+            <div>
+                <button id="prev">
+                    << </button>
+                        <button id="next"> >> </button>
+            </div>
+            <p id="pages"></p>
+        </div>
     </section>
     <script src="index1.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

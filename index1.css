@@ -3,7 +3,42 @@
     background: #ddd;
     border: 1px solid #fff;
 }
+a{
+    color: #000;
+}
+@media (max-width:480px) {
+    
+    /* #table_body{ */
+        /* width: 10rem; */
+        /* margin: 0;        */
+    /* } */
+    .table1{
+        display: flex;
+    }
+   
+    .td1{
+        column-gap: normal;
+        display: flex;
+    }
+    .table_repo_person td,th {
+            margin: 0;
+            text-align: left;
+            word-wrap: break-word;
 
+}
+    #reposotories{
+        /* display: flex; */
+        /* justify-content: flex-start; */
+        margin: 0;
+        /* text-align: start; */
+    }
+    .th1{
+        
+        column-gap: normal;
+        display: flex;
+        gap: 0.1px;
+    }
+}
 .row {
     margin: 40px auto;
 }
@@ -38,9 +73,10 @@ h1 ,h2{
 
 [type="radio"]:checked+span:after,
 [type="radio"].with-gap:checked+span:after {
-    background-color: rgb(46, 46, 182);
+    background-color: rgb(43, 43, 53);
 }
 
 label{
     color: black;
 }
+
