@@ -114,8 +114,11 @@ const all_results = (counter) => {
     fetch(`https://api.github.com/search/users?q=${document.getElementById("search_username").value}&per_page=10&page=${counter}`)
         .then((resolve) => resolve.json())
         .then((data) => {
-            document.getElementById("pages").innerHTML = `${counter * 10}/${data.total_count} results `
-            console.log(data.items);
+            document.getElementById("all_repo").innerHTML = ``
+
+           data.total_count<10 ? document.getElementById("pages").innerHTML = `${counter * 10}/${data.total_count} results `: document.getElementById("pages").innerHTML = `${(data.total_count)}/${data.total_count} results `
+       
+           console.log(data.items);
             console.log(data.total_count);
             console.log(username);
             data.items.forEach(element => {
