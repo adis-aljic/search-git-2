@@ -10,7 +10,7 @@ let counter = 1;
 document.getElementById("next").addEventListener("click", () => {
     document.getElementById("all_repo").innerHTML = ""
     counter++
-    console.log("click");
+    console.log(counter);
     all_results( counter)
 })
 document.getElementById("prev").addEventListener("click", () => {
@@ -116,11 +116,10 @@ const all_results = (counter) => {
         .then((resolve) => resolve.json())
         .then((data) => {
 
-           counter>10 ? document.getElementById("pages").innerHTML = `${counter * 10}/${data.total_count} results `: document.getElementById("pages").innerHTML = `${(data.total_count)}/${data.total_count} results `
-       
-           console.log(data.items);
+            
             console.log(data.total_count);
-            console.log(username);
+            console.log(counter);
+            data.total_count>10 ? document.getElementById("pages").innerHTML = `${counter * 10}/${data.total_count} results `: document.getElementById("pages").innerHTML = `${(data.total_count)}/${data.total_count} results `
             data.items.forEach(element => {
                 const obj = {
                     username: element.login,
