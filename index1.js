@@ -116,7 +116,7 @@ const all_results = (counter) => {
         .then((resolve) => resolve.json())
         .then((data) => {
 
-           data.total_count<10 ? document.getElementById("pages").innerHTML = `${counter * 10}/${data.total_count} results `: document.getElementById("pages").innerHTML = `${(data.total_count)}/${data.total_count} results `
+           counter<10 ? document.getElementById("pages").innerHTML = `${counter * 10}/${data.total_count} results `: document.getElementById("pages").innerHTML = `${(data.total_count)}/${data.total_count} results `
        
            console.log(data.items);
             console.log(data.total_count);
