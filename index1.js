@@ -5,17 +5,16 @@ const input_username = document.getElementById("search_username")
 const input_username_form = document.getElementById("input_username")
 const results_username = document.getElementById("results_username")
 
-const username = input_username.value;
 let counter = 1;
 document.getElementById("next").addEventListener("click", () => {
-    document.getElementById("all_repo").innerHTML = ""
-    counter++
-    console.log(counter);
-    all_results( counter)
+    
+        document.getElementById("all_repo").innerHTML = ""
+        counter++
+        all_results( counter)
+    
 })
 document.getElementById("prev").addEventListener("click", () => {
     if (counter > 1) {
-
         document.getElementById("all_repo").innerHTML = ""
         counter--
         all_results( counter)
@@ -27,8 +26,6 @@ document.getElementById("cover").addEventListener("click", () => window.location
 
 search_user.addEventListener("click", () => {
 
-
-
     if (document.getElementById("one_user").checked == true && document.getElementById("search_username").value != "") {
 
         document.getElementById("one_repos").classList.remove("hidden")
@@ -37,14 +34,12 @@ search_user.addEventListener("click", () => {
         document.getElementById("repo_body_table").innerHTML = ""
         fetching( counter)
 
-        // input_username.value = ""
     }
     else if (document.getElementById("all").checked == true && document.getElementById("search_username").value != null) {
 
         document.getElementById("all_repos").classList.remove("hidden")
         document.getElementById("one_repos").classList.add("hidden")
         all_results( counter)
-        // input_username.value = ""
     }
     else window.location.reload()
 
@@ -67,17 +62,37 @@ const fetching = () => {
                 link: data.html_url
             }
             document.getElementById("avatar").setAttribute("src", `${obj.avatar}`)
-            document.getElementById("table_body").innerHTML = `
-            <tr>
-            <td class="td1"> ${obj.name} </td>
-            <td class="td1">${obj.username} </td>
-            <td class="td1"> ${obj.followers} </td>
-            <td class="td1"> ${obj.following} </td>
-            <td class="td1">${obj.nbr_repo} </td>
-            <td class="td1"><a href="${obj.link}" target="_blank"  style="color:blue;"> <b><i>Link</i></b> </a> </td>
-            </tr>
-            `
-
+            const row = document.createElement("tr")
+            const data_row1 = document.createElement("td")
+            data_row1.innerHTML=obj.name
+            data_row1.setAttribute("class","td1")
+            row.append(data_row1)
+            const data_row2 = document.createElement("td")
+            data_row2.innerHTML=obj.username
+            data_row2.setAttribute("class","td1")
+            row.append(data_row2)
+            const data_row3 = document.createElement("td")
+            data_row3.innerHTML=obj.followers
+            data_row3.setAttribute("class","td1")
+            row.append(data_row3)
+            const data_row4 = document.createElement("td")
+            data_row4.innerHTML=obj.following
+            data_row4.setAttribute("class","td1")
+            row.append(data_row4)
+            const data_row5 = document.createElement("td")
+            data_row5.innerHTML=obj.nbr_repo
+            data_row5.setAttribute("class","td1")
+            row.append(data_row5)
+            const data_row6 = document.createElement("td")
+            const a = document.createElement("a")
+            data_row6.setAttribute("class","td1")
+            a.setAttribute("href",`${obj.link}`)
+            a.setAttribute("target","_blank" )
+            a.innerHTML = "Link"
+            data_row6.append(a)
+            row.append(data_row6)
+            document.getElementById("table_body").append(row)
+           
 
         }).catch((err) => location.reload())
 
@@ -87,20 +102,23 @@ const fetching = () => {
 
             for (let i = 0; i < data.length; i++) {
                 const el = data[i];
-
-
                 const obj = {
                     name: el.name,
-
                     link: el.html_url
                 }
-                document.getElementById("repo_body_table").innerHTML += `
-            <tr>
-            <td> ${obj.name} </td>
-            
-            <td ><a href="${obj.link}" target="_blank" style="color:blue;" ><b><i>Link</i></b> </a> </td>
-            </tr>
-            `
+                const row = document.createElement("tr")
+                const data_row1 = document.createElement("td")              
+                data_row1.innerHTML = obj.name
+                const data_row2 = document.createElement("td")
+                const a = document.createElement("a")
+                a.setAttribute("href",`${obj.link}`)
+                a.setAttribute("target","_blank" )
+                a.innerHTML = "Link"
+                data_row2.append(a)
+                row.append(data_row1)
+                row.append(data_row2)
+                document.getElementById("repo_body_table").append(row)
+              
             }
 
             search_user.disabled = false;
@@ -116,9 +134,7 @@ const all_results = (counter) => {
         .then((resolve) => resolve.json())
         .then((data) => {
 
-            
-            console.log(data.total_count);
-            console.log(counter);
+    
             data.total_count>10 ? document.getElementById("pages").innerHTML = `${counter * 10}/${data.total_count} results `: document.getElementById("pages").innerHTML = `${(data.total_count)}/${data.total_count} results `
             data.items.forEach(element => {
                 const obj = {
@@ -127,28 +143,26 @@ const all_results = (counter) => {
                     avatar: element.avatar_url
 
                 }
-                document.getElementById("all_repo").innerHTML += `
-        <tr> 
+                const row = document.createElement("tr")
+                const data_row1 = document.createElement("td")
+                const img = document.createElement("img")
+                img.setAttribute("id","avatar_all")
+                img.setAttribute("class","responsive-img materialboxed")
+                img.setAttribute("src",`${obj.avatar}`)
+                data_row1.append(img)
+                const data_row2 = document.createElement("td")
+                data_row2.innerHTML = obj.username
+                const data_row3 = document.createElement("td")
+                const a = document.createElement("a")
+                a.setAttribute("href",`${obj.link}`)
+                a.setAttribute("target","_blank" )
+                a.innerHTML = "Link"
+                data_row3.append(a)
+                row.append(data_row1)
+                row.append(data_row2)
+                row.append(data_row3)
+                document.getElementById("all_repo").append(row)
 
-    
-            <td > 
-                            <img class="responsive-img materialboxed " id="avatar_all"  src="${obj.avatar}">
-                            </td>
-
-            <td>
-
-            ${obj.username} 
-            </td>
-            
-            <td>
-
-            <a href="${obj.link}" target="_blank" style="color:white; text-decoration:underline;" ><i>Link</i> </a> 
-</div>
-            </td>
-            
-            </tr>
-            </div>
-            `
             })
 
 

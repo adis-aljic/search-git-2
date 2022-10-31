@@ -80,3 +80,10 @@ label{
     color: black;
 }
 
+a{
+    font-weight: 800;
+    color: rgb(35, 35, 73);
+    text-decoration: underline;
+    text-decoration-color: rgb(91, 91, 107);
+    cursor: pointer;
+}
