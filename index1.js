@@ -11,14 +11,14 @@ document.getElementById("next").addEventListener("click", () => {
     document.getElementById("all_repo").innerHTML = ""
     counter++
     console.log("click");
-    all_results(input_username.value, counter)
+    all_results( counter)
 })
 document.getElementById("prev").addEventListener("click", () => {
     if (counter > 1) {
 
         document.getElementById("all_repo").innerHTML = ""
         counter--
-        all_results(input_username.value, counter)
+        all_results( counter)
     }
 
 })
@@ -35,7 +35,7 @@ search_user.addEventListener("click", () => {
         document.getElementById("all_repos").classList.add("hidden")
         document.getElementById("table_body").innerHTML = ""
         document.getElementById("repo_body_table").innerHTML = ""
-        fetching(input_username.value, counter)
+        fetching( counter)
 
         // input_username.value = ""
     }
@@ -43,7 +43,7 @@ search_user.addEventListener("click", () => {
 
         document.getElementById("all_repos").classList.remove("hidden")
         document.getElementById("one_repos").classList.add("hidden")
-        all_results(input_username.value, counter)
+        all_results( counter)
         // input_username.value = ""
     }
     else window.location.reload()
@@ -51,9 +51,9 @@ search_user.addEventListener("click", () => {
 
 
 })
-const fetching = (username) => {
+const fetching = () => {
 
-    fetch(`https://api.github.com/users/${username}`)
+    fetch(`https://api.github.com/users/${document.getElementById("search_username").value}`)
         .then((resolve) => resolve.json())
         .then((data) => {
 
@@ -81,7 +81,7 @@ const fetching = (username) => {
 
         }).catch((err) => location.reload())
 
-    fetch(`https://api.github.com/users/${username}/repos`)
+    fetch(`https://api.github.com/users/${document.getElementById("search_username").value}/repos`)
         .then((resolve) => resolve.json())
         .then((data) => {
 
@@ -110,7 +110,7 @@ const fetching = (username) => {
 }
 
 
-const all_results = (username, counter) => {
+const all_results = (counter) => {
     fetch(`https://api.github.com/search/users?q=${document.getElementById("search_username").value}&per_page=10&page=${counter}`)
         .then((resolve) => resolve.json())
         .then((data) => {
