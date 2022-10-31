@@ -111,7 +111,7 @@ const fetching = (username) => {
 
 
 const all_results = (username, counter) => {
-    fetch(`https://api.github.com/search/users?q=${username}&per_page=10&page=${counter}`)
+    fetch(`https://api.github.com/search/users?q=${document.getElementById("search_username").value}&per_page=10&page=${counter}`)
         .then((resolve) => resolve.json())
         .then((data) => {
             document.getElementById("pages").innerHTML = `${counter * 10}/${data.total_count} results `
