@@ -111,10 +111,10 @@ const fetching = () => {
 
 
 const all_results = (counter) => {
+    document.getElementById("all_repo").innerHTML = ``
     fetch(`https://api.github.com/search/users?q=${document.getElementById("search_username").value}&per_page=10&page=${counter}`)
         .then((resolve) => resolve.json())
         .then((data) => {
-            document.getElementById("all_repo").innerHTML = ``
 
            data.total_count<10 ? document.getElementById("pages").innerHTML = `${counter * 10}/${data.total_count} results `: document.getElementById("pages").innerHTML = `${(data.total_count)}/${data.total_count} results `
        
